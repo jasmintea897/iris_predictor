@@ -417,30 +417,30 @@ with tab_health:
         )
         return dtype_badge, null_pill
 
-    header_html = """
-    <table style="width:100%; border-collapse:collapse; font-size:0.88rem;">
-        <thead>
-            <tr style="background:#e0f2fe; color:#0369a1;">
-                <th style="padding:10px 14px; border-radius:8px 0 0 8px; text-align:left;">#</th>
-                <th style="padding:10px 14px; text-align:left;">Column Name</th>
-                <th style="padding:10px 14px; text-align:left;">Data Type</th>
-                <th style="padding:10px 14px; border-radius:0 8px 8px 0; text-align:left;">Null Values</th>
-            </tr>
-        </thead>
-        <tbody>
-    """
+    header_html = (
+        '<table style="width:100%; border-collapse:collapse; font-size:0.88rem;">'
+        '<thead>'
+        '<tr style="background:#e0f2fe; color:#0369a1;">'
+        '<th style="padding:10px 14px; border-radius:8px 0 0 8px; text-align:left;">#</th>'
+        '<th style="padding:10px 14px; text-align:left;">Column Name</th>'
+        '<th style="padding:10px 14px; text-align:left;">Data Type</th>'
+        '<th style="padding:10px 14px; border-radius:0 8px 8px 0; text-align:left;">Null Values</th>'
+        '</tr>'
+        '</thead>'
+        '<tbody>'
+    )
     rows_html = ""
     for i, row in summary_df.iterrows():
         dtype_badge, null_pill = fmt_row(row)
         bg = "#f8fafc" if i % 2 == 0 else "#ffffff"
-        rows_html += f"""
-        <tr style="background:{bg}; border-bottom:1px solid #e0f2fe;">
-            <td style="padding:9px 14px; color:#94a3b8;">{i+1}</td>
-            <td style="padding:9px 14px; font-weight:600; color:#334155;">{row['Column']}</td>
-            <td style="padding:9px 14px;">{dtype_badge}</td>
-            <td style="padding:9px 14px;">{null_pill}</td>
-        </tr>
-        """
+        rows_html += (
+            f'<tr style="background:{bg}; border-bottom:1px solid #e0f2fe;">'
+            f'<td style="padding:9px 14px; color:#94a3b8;">{i+1}</td>'
+            f'<td style="padding:9px 14px; font-weight:600; color:#334155;">{row["Column"]}</td>'
+            f'<td style="padding:9px 14px;">{dtype_badge}</td>'
+            f'<td style="padding:9px 14px;">{null_pill}</td>'
+            '</tr>'
+        )
     footer_html = "</tbody></table>"
 
     st.markdown(
@@ -486,9 +486,7 @@ with tab_health:
             unsafe_allow_html=True,
         )
         st.dataframe(
-            df[numeric_cols].describe().T.style
-                .background_gradient(cmap="Blues", subset=["mean", "std"])
-                .format(precision=3),
+            df[numeric_cols].describe().T.round(3),
             use_container_width=True,
         )
 
