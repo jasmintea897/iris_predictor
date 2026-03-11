@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import joblib
+import os
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import load_iris
 
@@ -150,10 +152,16 @@ st.markdown(
 # ── ML Model ─────────────────────────────────────────────────────────────────
 @st.cache_resource
 def get_model():
-    """Train a simple Random Forest on the built-in Iris dataset."""
+    """Load pre-trained model if available, else fallback to training."""
     iris = load_iris()
-    clf = RandomForestClassifier(random_state=42, n_estimators=50)
-    clf.fit(iris.data, iris.target)
+    model_path = "model.joblib"
+    
+    if os.path.exists(model_path):
+        clf = joblib.load(model_path)
+    else:
+        clf = RandomForestClassifier(random_state=42, n_estimators=50)
+        clf.fit(iris.data, iris.target)
+        
     return clf, iris.target_names
 
 clf, target_names = get_model()
