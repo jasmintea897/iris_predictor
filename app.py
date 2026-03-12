@@ -173,7 +173,6 @@ with st.sidebar:
         <div style="text-align:center; padding-bottom:1rem;">
             <div style="font-size:2.2rem;">🌸</div>
             <div style="font-size:1.15rem; font-weight:700; color:#0369a1;">Iris Predictor</div>
-            <div style="font-size:0.75rem; color:#64748b; margin-top:2px;">Antigravity Analytics Suite</div>
         </div>
         """,
         unsafe_allow_html=True,
