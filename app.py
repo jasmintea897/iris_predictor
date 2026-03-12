@@ -5,7 +5,7 @@ from sklearn.datasets import load_iris
 
 # ── Page Configuration ──────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Iris Predictor · Antigravity",
+    page_title="Iris Predictor",
     page_icon="🌸",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -59,21 +59,13 @@ st.markdown(
         border-radius: 12px;
         padding: 0.55rem 1.6rem;
         font-weight: 600;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
         font-size: 0.88rem;
         box-shadow: 0 3px 12px rgba(16,185,129,0.30);
->>>>>>> a3a3ac2 (Initial commit: DataLens Streamlit app)
-=======
->>>>>>> 9f14f47 (Refactor to Iris predictor)
         transition: all 0.2s ease;
     }
     .stDownloadButton > button:hover {
         background: linear-gradient(135deg, #059669, #047857);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        transform: translateY(-1px);
     }
 =======
         box-shadow: 0 6px 18px rgba(16,185,129,0.40);
@@ -148,11 +140,8 @@ st.markdown(
         color: var(--sky-600) !important;
         box-shadow: 0 2px 8px rgba(14,165,233,0.15);
     }
->>>>>>> a3a3ac2 (Initial commit: DataLens Streamlit app)
-=======
         transform: translateY(-1px);
     }
->>>>>>> 9f14f47 (Refactor to Iris predictor)
     </style>
     """,
     unsafe_allow_html=True,
